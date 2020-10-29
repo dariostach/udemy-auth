@@ -20,6 +20,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'rol_id',
     ];
 
     /**
@@ -40,4 +41,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // para definir la FK con el rol
+    public function rol(){
+        return $this->hasOne('App\Models\Rol', 'id', 'rol_id');
+    }
 }
